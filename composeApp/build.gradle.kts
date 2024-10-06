@@ -19,17 +19,6 @@ kotlin {
     
     jvm("desktop")
     
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-    }
-    
     sourceSets {
         val desktopMain by getting
         
@@ -55,7 +44,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pablogv63.theregistry"
+    namespace = "com.pablogv63.theregistry"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -63,7 +52,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "org.pablogv63.theregistry"
+        applicationId = "com.pablogv63.theregistry"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -93,11 +82,11 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "org.pablogv63.theregistry.MainKt"
+        mainClass = "com.pablogv63.theregistry.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.pablogv63.theregistry"
+            packageName = "com.pablogv63.theregistry"
             packageVersion = "1.0.0"
         }
     }

@@ -1,4 +1,4 @@
-package org.pablogv63.theregistry
+package com.pablogv63.theregistry
 
 import android.os.Build
 
